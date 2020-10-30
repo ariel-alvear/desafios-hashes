@@ -12,14 +12,16 @@ ventas = {
     Noviembre: 91000,
     Diciembre: 21000
     }
+quarters_sales = {'Q1'=>0, 'Q2'=>1,'Q3'=>2,'Q4'=>3}
 sales = []
 sales = ventas.values
+n = sales.count / 3
 quarters_array = []
-
-4.times do |e|
+n.times do |e|
     quarters_array.push(sales.each_slice(3).to_a[e])
 end
+quarters_sales.each do |k, v|
+    quarters_sales[k] = quarters_array[v].sum
+end
 
-print quarters_array
-
-quarters_sales = {'Q1'=>0, 'Q2'=>0,'Q3'=>0,'Q4'=>0}
+print quarters_sales
