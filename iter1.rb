@@ -13,7 +13,7 @@ ventas = {
     Diciembre: 21000
     }
 
-#primer desafío, mostrar los valores sovre 45000 del hash.
+#primer desafío, mostrar los valores sobre 45000 del hash.
 
 ventas.each do |k, v|
     print "#{v} " if v > 45000
