@@ -1,3 +1,17 @@
+def make_quarters(hash)
+    quarters_sales = {'Q1'=>0, 'Q2'=>1,'Q3'=>2,'Q4'=>3}
+    sales = []
+    sales = hash.values
+    n = sales.count / (quarters_sales.count - 1)
+    quarters_array = []
+    n.times do |e|
+        quarters_array.push(sales.each_slice(3).to_a[e])
+    end
+    quarters_sales.each do |k, v|
+        quarters_sales[k] = quarters_array[v].sum
+    end
+end
+
 ventas = {
     Enero: 15000,
     Febrero: 22000,
@@ -12,16 +26,5 @@ ventas = {
     Noviembre: 91000,
     Diciembre: 21000
     }
-quarters_sales = {'Q1'=>0, 'Q2'=>1,'Q3'=>2,'Q4'=>3}
-sales = []
-sales = ventas.values
-n = sales.count / 3
-quarters_array = []
-n.times do |e|
-    quarters_array.push(sales.each_slice(3).to_a[e])
-end
-quarters_sales.each do |k, v|
-    quarters_sales[k] = quarters_array[v].sum
-end
 
-print quarters_sales
+puts make_quarters(ventas)
